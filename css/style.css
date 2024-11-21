@@ -3,6 +3,8 @@
     --site-primary-color: #ffffffff;
     --site-secondary-color: #e2e8f0ff;
     --site-accent-color: #f0b429ff;
+
+    font-size: 16px;
 }
 
 body {
@@ -13,21 +15,68 @@ body {
 .container {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: clamp(150px, 20%, 200px) 4fr;
 }
 
 .sidebar {
     grid-column: 1/2;
     grid-row: 1/span 2;
-    gap: 15px;
-    padding: 5%;
+    gap: 5px;
+    padding: 10px;
     background-color: var(--site-main-color);
     color: var(--site-primary-color);
     font-weight: bold;
     display: grid;
+    grid-template-columns: 25px 2fr;
+    align-items: stretch;
+}
+
+.sidebar-logos {
+    grid-column: 1/2;
+    display: grid;
     grid-template-rows: 50px repeat(2, 1fr) 1fr;
-    grid-template-columns: 1fr;
-    align-items: center;
+    gap: 25px;
+}
+
+.sidebar-row-1 {
+    grid-row: 1/2;
+}
+
+.sidebar-row-2 {
+    grid-row: 2/3;
+}
+
+.sidebar-row-1,
+.sidebar-row-2 {
+    align-self: center;
+}
+
+.sidebar-row-3 {
+    grid-row: 3/4;
+}
+
+.navigation {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: 50px repeat(2, 1fr) 1fr;
+    gap: 25px;
+}
+
+.dashboard {
+    grid-row: 1/2;
+}
+
+.user-dashboard-nav {
+    grid-row: 2/3;
+}
+
+.dashboard,
+.user-dashboard-nav {
+    align-self: center;
+}
+
+.site-controls-nav {
+    grid-row: 3/4;
 }
 
 .header {
@@ -72,7 +121,7 @@ form > input {
     font-size: -1rem;
     border: none;
     border-radius: 10px;
-    padding: 5% 5%;
+    padding: 10px 10px;
 }
 
 .user-dashboard-controls {
@@ -86,6 +135,14 @@ form > input {
 
 .user-identity {
     grid-column: 1/2;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.greeting {
+    font-size: 10px;
 }
 
 .dash-content-controls {
@@ -104,6 +161,11 @@ form > input {
     padding: 1%;
 }
 
+.project-name,
+.announcement-name {
+    font-weight: bold;
+}
+
 .projects-label {
     grid-row: 1/2;
     font-weight: bold;
@@ -118,17 +180,17 @@ form > input {
 .the-projects {
     grid-column: 1/2;
     display: grid;
-    gap: 1%;
+    gap: 10px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .project {
     text-align: start;
-    /* align-items: center; */
     border: 1px solid black;
     border-radius: 5px;
     background-color: var(--site-primary-color);
+    width: clamp(190px, 100%, 350px);
     display: grid;
     gap: 5px;
     grid-template-columns: 10px 1fr;
@@ -136,6 +198,12 @@ form > input {
 
 .leftbar {
     background-color: var(--site-accent-color);
+}
+
+.rightbar {
+    display: grid;
+    align-items: center;
+    align-self: baseline;
 }
 
 .main-content-sidebar {
