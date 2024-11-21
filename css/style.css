@@ -23,11 +23,11 @@ body {
     padding: 5%;
     background-color: var(--site-main-color);
     color: var(--site-primary-color);
+    font-weight: bold;
     display: grid;
-    grid-template-rows: 50px repeat(2, 1fr) 3fr;
+    grid-template-rows: 50px repeat(2, 1fr) 1fr;
     grid-template-columns: 1fr;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
 }
 
 .header {
@@ -49,7 +49,13 @@ body {
 
 .header-user-quick-controls-left {
     grid-column: 1/2;
-    justify-self: start;
+}
+
+form > input {
+    width: 50%;
+    background-color: var(--site-secondary-color);
+    border: none;
+    border-radius: 10px;
 }
 
 .header-user-quick-controls-right {
@@ -58,6 +64,15 @@ body {
     justify-self: end;
     display: flex;
     align-items: center;
+}
+
+[class*="-button"] {
+    background-color: var(--site-main-color);
+    color: var(--site-primary-color);
+    font-size: -1rem;
+    border: none;
+    border-radius: 10px;
+    padding: 5% 5%;
 }
 
 .user-dashboard-controls {
