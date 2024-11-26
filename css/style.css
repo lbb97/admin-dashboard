@@ -1,3 +1,73 @@
+@font-face {
+    font-family: 'athitibold';
+    src: url('athiti-bold-webfont.woff2') format('woff2'),
+         url('athiti-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'athitiregular';
+    src: url('athiti-regular-webfont.woff2') format('woff2'),
+         url('athiti-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'jostitalic';
+    src: url('jost-italic-variablefont_wght-webfont.woff2') format('woff2'),
+         url('jost-italic-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'jostregular';
+    src: url('jost-variablefont_wght-webfont.woff2') format('woff2'),
+         url('jost-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserrat_alternatesbold';
+    src: url('montserratalternates-bold-webfont.woff2') format('woff2'),
+         url('montserratalternates-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'montserrat_alternatesregular';
+    src: url('montserratalternates-regular-webfont.woff2') format('woff2'),
+         url('montserratalternates-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 :root {
     --site-main-color: #1992d4ff;
     --site-primary-color: #ffffffff;
@@ -115,6 +185,34 @@ form > input {
     align-items: center;
 }
 
+[class*="-logo-svg"] {
+    height: 16px;
+    width: auto;
+}
+
+[class*="-logo-svg"] path {
+    filter: var(--site-primary-color) !important;
+}
+
+.search-label-svg {
+    height: 16px;
+    width: auto;
+}
+
+.notifications-svg {
+    height: 16px;
+}
+
+.user-photo > img {
+    width: 16px;
+    height: auto;
+}
+
+.user-photo-large > img {
+    width: 50px;
+    height: auto;
+}
+
 [class*="-button"] {
     background-color: var(--site-main-color);
     color: var(--site-primary-color);
@@ -157,8 +255,8 @@ form > input {
     gap: 10px;
     background-color: var(--site-secondary-color);
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    padding: 1%;
+    grid-template-columns: 3fr 1fr;
+    padding: 10px;
 }
 
 .project-name,
@@ -169,6 +267,7 @@ form > input {
 .projects-label {
     grid-row: 1/2;
     font-weight: bold;
+    justify-self: start;
 }
 
 .user-projects {
@@ -183,6 +282,7 @@ form > input {
     gap: 10px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
+    justify-self: center;
 }
 
 .project {
@@ -190,7 +290,7 @@ form > input {
     border: 1px solid black;
     border-radius: 5px;
     background-color: var(--site-primary-color);
-    width: clamp(190px, 100%, 350px);
+    width: clamp(190px, 100%, 400px);
     display: grid;
     gap: 5px;
     grid-template-columns: 10px 1fr;
@@ -236,6 +336,11 @@ form > input {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 25px 1fr;
+}
+
+.trending-user-avatar-svg {
+    width: 20px;
+    height: auto;
 }
 
 .trends-label {
