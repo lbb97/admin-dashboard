@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'athitibold';
-    src: url('athiti-bold-webfont.woff2') format('woff2'),
-         url('athiti-bold-webfont.woff') format('woff');
+    font-family: 'athiti bold';
+    src: url('../fonts/athiti-bold-webfont.woff2') format('woff2'),
+         url('../fonts/athiti-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -11,9 +11,9 @@
 
 
 @font-face {
-    font-family: 'athitiregular';
-    src: url('athiti-regular-webfont.woff2') format('woff2'),
-         url('athiti-regular-webfont.woff') format('woff');
+    font-family: 'athiti regular';
+    src: url('../fonts/athiti-regular-webfont.woff2') format('woff2'),
+         url('../fonts/athiti-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -23,9 +23,9 @@
 
 
 @font-face {
-    font-family: 'jostitalic';
-    src: url('jost-italic-variablefont_wght-webfont.woff2') format('woff2'),
-         url('jost-italic-variablefont_wght-webfont.woff') format('woff');
+    font-family: 'jost italic';
+    src: url('../fonts/jost-italic-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/jost-italic-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -35,9 +35,9 @@
 
 
 @font-face {
-    font-family: 'jostregular';
-    src: url('jost-variablefont_wght-webfont.woff2') format('woff2'),
-         url('jost-variablefont_wght-webfont.woff') format('woff');
+    font-family: 'jost regular';
+    src: url('../fonts/jost-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/jost-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -47,9 +47,9 @@
 
 
 @font-face {
-    font-family: 'montserrat_alternatesbold';
-    src: url('montserratalternates-bold-webfont.woff2') format('woff2'),
-         url('montserratalternates-bold-webfont.woff') format('woff');
+    font-family: 'montserrat bold';
+    src: url('../fonts/montserratalternates-bold-webfont.woff2') format('woff2'),
+         url('../fonts/montserratalternates-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -59,9 +59,9 @@
 
 
 @font-face {
-    font-family: 'montserrat_alternatesregular';
-    src: url('montserratalternates-regular-webfont.woff2') format('woff2'),
-         url('montserratalternates-regular-webfont.woff') format('woff');
+    font-family: 'montserrat regular';
+    src: url('../fonts/montserratalternates-regular-webfont.woff2') format('woff2'),
+         url('../fonts/montserratalternates-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -73,19 +73,20 @@
     --site-primary-color: #ffffffff;
     --site-secondary-color: #e2e8f0ff;
     --site-accent-color: #f0b429ff;
-
-    font-size: 16px;
+    --site-main-darker: rgb(16, 101, 146);
 }
 
 body {
     margin: 0;
     height: 100vh;
+    font-size: 16px;
+    font-family: 'monsterrat regular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
     height: 100%;
     display: grid;
-    grid-template-columns: clamp(150px, 20%, 200px) 4fr;
+    grid-template-columns: clamp(180px, 20%, 200px) 4fr;
 }
 
 .sidebar {
@@ -149,16 +150,26 @@ body {
     grid-row: 3/4;
 }
 
+[class*="-logo-svg"] {
+    height: 16px;
+    width: auto;
+}
+
+[class*="-logo-svg"] path {
+    filter: var(--site-primary-color) !important;
+}
+
 .header {
     grid-column: 2/3;
     background-color: var(--site-primary-color);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 2fr 1fr;
 }
 
 .user-quick-controls {
-    padding: 0 1%;
+    padding: 0 10px;
     grid-row: 1/2;
     grid-column: 1/3;
     display: grid;
@@ -170,11 +181,32 @@ body {
     grid-column: 1/2;
 }
 
+form {
+    display: flex;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 form > input {
-    width: 50%;
+    width: 80%;
+    height: 20px;
     background-color: var(--site-secondary-color);
     border: none;
     border-radius: 10px;
+}
+
+form > input:focus-within {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: var(--site-primary-color);
+    background-color: rgb(177, 177, 177);
 }
 
 .header-user-quick-controls-right {
@@ -185,22 +217,21 @@ form > input {
     align-items: center;
 }
 
-[class*="-logo-svg"] {
-    height: 16px;
-    width: auto;
-}
-
-[class*="-logo-svg"] path {
-    filter: var(--site-primary-color) !important;
-}
-
 .search-label-svg {
     height: 16px;
     width: auto;
 }
 
+.notifications {
+    display: flex;
+}
+
 .notifications-svg {
     height: 16px;
+}
+
+.user-photo {
+    display: flex;
 }
 
 .user-photo > img {
@@ -208,22 +239,35 @@ form > input {
     height: auto;
 }
 
-.user-photo-large > img {
-    width: 50px;
-    height: auto;
+a {
+    text-decoration: none;
+    display: flex;
+}
+
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 [class*="-button"] {
     background-color: var(--site-main-color);
     color: var(--site-primary-color);
     font-size: -1rem;
+    font-weight: bold;
+    width: 70px;
     border: none;
     border-radius: 10px;
     padding: 10px 10px;
+    cursor: pointer;
+}
+
+[class*="-button"]:hover {
+    background-color: var(--site-main-darker);
 }
 
 .user-dashboard-controls {
-    padding: 1% 1%;
+    padding: 0 10px 10px;
     grid-row: 2/3;
     grid-column: 1/3;
     display: grid;
@@ -233,6 +277,14 @@ form > input {
 
 .user-identity {
     grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-photo-large > img {
+    width: 50px;
+    height: auto;
 }
 
 .user-info {
@@ -245,9 +297,9 @@ form > input {
 
 .dash-content-controls {
     grid-column: 2/3;
-    gap: 10%;
+    gap: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .main-content {
@@ -257,6 +309,7 @@ form > input {
     display: grid;
     grid-template-columns: 3fr 1fr;
     padding: 10px;
+    font-family: 'jost regular', Arial, Helvetica, sans-serif;
 }
 
 .project-name,
@@ -274,12 +327,13 @@ form > input {
     grid-column: 1/2;
     display: grid;
     grid-template-rows: 25px 1fr;
+    margin: 0 10px;
 }
 
 .the-projects {
     grid-column: 1/2;
     display: grid;
-    gap: 10px;
+    gap: clamp(10px, 2%, 50px);
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     justify-self: center;
@@ -287,13 +341,14 @@ form > input {
 
 .project {
     text-align: start;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: none;
+    border-radius: 15px;
     background-color: var(--site-primary-color);
-    width: clamp(190px, 100%, 400px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     display: grid;
     gap: 5px;
     grid-template-columns: 10px 1fr;
+    box-sizing: border-box;
 }
 
 .leftbar {
@@ -301,9 +356,9 @@ form > input {
 }
 
 .rightbar {
-    display: grid;
-    align-items: center;
-    align-self: baseline;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 50px 10px;
 }
 
 .main-content-sidebar {
@@ -312,9 +367,12 @@ form > input {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
+    margin: 0 10px 0 0;
+    /* align-items: end; */
 }
 
 .announcements {
+    /* align-self: start; */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 25px 1fr;
@@ -327,20 +385,27 @@ form > input {
 
 .the-announcements {
     grid-row: 2/3;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     background-color: var(--site-primary-color);
+    /* padding: 10px; */
 }
 
 .trending {
+    align-self: end;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 25px 1fr;
 }
 
 .trending-user-avatar-svg {
-    width: 20px;
+    width: 30px;
     height: auto;
+}
+
+.trending-user-name {
+    font-weight: normal;
 }
 
 .trends-label {
@@ -350,12 +415,23 @@ form > input {
 
 .the-trends {
     grid-row: 2/3;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     background-color: var(--site-primary-color);
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.trend-text > p {
+    margin: 5px;
 }
 
 .the-announcements,
 .the-trends {
-    padding: 2%;
+    padding: 20px;
 }
